@@ -6,18 +6,18 @@ html(lang="en")
         link(rel="stylesheet", href="/styles/dashboard.css")
         title ApoloChecks
     body 
-        header 
-            nav 
-                p Apolo 
-                p 
-                    a(href="/") Dashboard
-        
         main 
-            .container 
-                h2 ApoloChecks
-                form(action="/add", method="POST")
-                    input(type="text", name="task", placeholder="Enter a new task")
-                    button(type="submit") Add Task
-                ul 
-                    each task in tasks
-                        li= task.title || "untitled"
+            h1 ApoloChecks
+            form(action="/add", method="POST")
+                input(type="text", name="task", placeholder="Enter a new task")
+                button(type="submit") Add Task
+            ul 
+                each task in tasks
+                    li 
+                        .check
+                            input(type="checkbox", name="check")
+                        .container
+                            p= task.title || "untitled"
+                            .task-actions 
+                                edit 
+                                delete
