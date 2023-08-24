@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title ApoloChecks
+    link(rel="stylesheet", href="/styles/text.css")
+  body
+    .container
+       h1 ApoloChecks
+        form(action="/add", method="POST")
+            input(type="text", name="task", placeholder="Enter a new task")
+            button(type="submit") Add Task
+        ul
+            each task in tasks
+                li= task

@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/styles/dashboard.css")
+        title ApoloChecks
+    body 
+        header 
+            nav 
+                p Apolo 
+                p 
+                    a(href="/") Dashboard
+        
+        main 
+            .container 
+                h2 ApoloChecks
+                form(action="/add", method="POST")
+                    input(type="text", name="task", placeholder="Enter a new task")
+                    button(type="submit") Add Task
+                ul 
+                    each task in tasks
+                        li= task.title || "untitled"
