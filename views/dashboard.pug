@@ -9,18 +9,18 @@ html(lang="en")
         main 
             h1 ApoloChecks
             form(action="/add", method="POST")
-                input(type="text", name="task", placeholder="Enter a new task")
+                input(type="text", name="task", placeholder="New task")
                 button(type="submit") Add Task
             ul 
                 each task in tasks
                     li 
                         .check
-                            input(type="checkbox", name="check")
+                            input(type="checkbox", name="check", id=`checkbox-${task.id}`)
+                            label(for=`checkbox-${task.id}`)
                         .container
                             - id = task.id
-                            p= task.title || "untitled"
+                            p(class=task.completed ? "completed" : "")= task.title || "untitled"
                             .actions 
                                 form(action="/delete/" + id, method="POST")
                                     button(type="submit") Delete
-                                a(href="/edit" + id) 
-                                    .edit-button Edit
+        script(src="/scripts/dashboard.js") 

@@ -32,26 +32,6 @@ app.post("/delete/:id", (req, res) => {
   return res.redirect("/");
 });
 
-app.get("/update/:id", (req, res) => {
-  const { id } = req.params;
-  const todo = tasks.find((post) => post.id == id);
-  return res.render("edit", {
-    todo,
-  });
-});
-
-app.post("/update/:id", (req, res) => {
-  const { id } = req.params;
-  const { title } = req.body;
-  const index = tasks.findIndex((post) => post.id == id);
-  tasks[index] = {
-    id,
-    title,
-  };
-
-  return res.redirect("/");
-});
-
 app.listen(PORT, () => {
   console.log(`server started on http://localhost:${PORT}.`);
 });

@@ -37,8 +37,7 @@ input {
   border-radius: 5px;
 }
 
-form > button,
-.edit-button {
+form > button {
   background-color: #8e7da7;
   color: #fff;
   border: none;
@@ -81,14 +80,25 @@ li {
 
 .container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .actions {
   display: flex;
 }
 
-a {
-  text-decoration: none;
+.completed {
+  text-decoration: line-through;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-color: white;
+  }
+
+  main {
+    box-shadow: none;
+  }
 }
